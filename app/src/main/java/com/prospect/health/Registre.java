@@ -26,6 +26,7 @@ import java.util.Map;
 public class Registre extends AppCompatActivity {
 
     private EditText mEdiTextName;
+    private EditText mEditTextCorreo;
     private EditText mEdiTextSurnames;
     private EditText mEdiTextWeight;
     private EditText mEditTextHeight;
@@ -38,6 +39,7 @@ public class Registre extends AppCompatActivity {
 
     //Variables
     private String name="";
+    private String correo="";
     private String surnames="";
     private String weight="";
     private String height="";
@@ -53,10 +55,11 @@ public class Registre extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mEdiTextName = (EditText) findViewById(R.id.nombre);
-        mEdiTextSurnames = (EditText) findViewById(R.id.apellidos);
+        mEditTextCorreo = (EditText) findViewById(R.id.editTextEmail);
+        //mEdiTextSurnames = (EditText) findViewById(R.id.apellidos);
         mEdiTextWeight = (EditText) findViewById(R.id.peso);
         mEditTextHeight = (EditText) findViewById(R.id.altura);
-        mEdiTextDate = (EditText) findViewById(R.id.date);
+        //mEdiTextDate = (EditText) findViewById(R.id.date);
         mEdiTextPassword = (EditText) findViewById(R.id.ingrese_su_password);
         mButtonRegister = (Button) findViewById(R.id.ButtonSendRegister);
 
@@ -64,10 +67,11 @@ public class Registre extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 name = mEdiTextName.getText().toString();
-                surnames = mEdiTextSurnames.getText().toString();
+                correo = mEditTextCorreo.getText().toString();
+                //surnames = mEdiTextSurnames.getText().toString();
                 weight = mEdiTextWeight.getText().toString();
                 height = mEditTextHeight.getText().toString();
-                date = mEdiTextDate.getText().toString();
+                //date = mEdiTextDate.getText().toString();
                 password = mEdiTextPassword.getText().toString();
                 /*name = "Prueba1";
                 mDatabase.child("Usuario").setValue(name);*/
@@ -79,17 +83,18 @@ public class Registre extends AppCompatActivity {
     }
 
     private void registerUser(){
-        mAuth.createUserWithEmailAndPassword(name, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(correo, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Map<String, Object> map = new HashMap<>();
                     map.put( "name", name);
+                    map.put("name", correo);
                     map.put( "password", password);
-                    map.put( "surnames", surnames);
+                    //map.put( "surnames", surnames);
                     map.put( "weight", weight);
                     map.put( "height", height);
-                    map.put( "date", date);
+                    //map.put( "date", date);
 
                     String id= mAuth.getCurrentUser().getUid();
                     mDatabase.child("Usuario").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {

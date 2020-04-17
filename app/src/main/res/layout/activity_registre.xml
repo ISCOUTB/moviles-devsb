@@ -44,15 +44,15 @@
                 tools:targetApi="o" />
 
             <EditText
-                android:id="@+id/apellidos"
+                android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
                 android:ems="10"
-                android:hint="@string/apellidos"
-                android:inputType="textPersonName"
-                tools:ignore="LabelFor"
-                tools:targetApi="o" />
+                android:hint="@string/enter_your_email"
+                android:inputType="textEmailAddress" />
+
+
 
             <EditText
                 android:id="@+id/peso"
@@ -76,17 +76,6 @@
                 tools:ignore="LabelFor"
                 tools:targetApi="o" />
 
-            <EditText
-                android:id="@+id/date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:ems="10"
-                android:gravity="start|top"
-                android:hint="01/01/1999"
-                android:inputType="date"
-                tools:ignore="LabelFor"
-                tools:targetApi="o" />
 
             <EditText
                 android:id="@+id/ingrese_su_password"
@@ -121,7 +110,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20px" />
+                android:layout_height="30px" />
 
             <Button
                 android:id="@+id/ButtonSendRegister"
