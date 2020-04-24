@@ -78,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bk_boton_plano1"
+                android:onClick="forgetPassword"
                 android:text="@string/forget_password" />
 
             <Space

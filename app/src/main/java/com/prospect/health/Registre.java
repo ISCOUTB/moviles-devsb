@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -132,6 +133,22 @@ public class Registre extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_profile:
+                startActivity(new Intent(Registre.this, Profile.class ));
+                return true;
+            case R.id.action_salir:
+                Login.Logintrue.signOut();
+                startActivity(new Intent(Registre.this, Login.class ));
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     //Results Screen
     /*public void return0(View v) {
         Intent return0 = new Intent(this, MainActivity.class);

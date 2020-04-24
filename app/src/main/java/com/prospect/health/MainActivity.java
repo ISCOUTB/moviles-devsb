@@ -102,11 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText( MainActivity.this, "Analizando datos!", Toast.LENGTH_SHORT).show();
 
                     finish();
-                }/*else{
-                    Log.d("myTag", "EL rgistro fallo");
-                    Toast.makeText( MainActivity.this, "EL registro fallo", Toast.LENGTH_SHORT).show();
-
-                }*/
+                }
             }
         });
     }

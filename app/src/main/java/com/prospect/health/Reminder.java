@@ -91,6 +91,23 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener 
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_profile:
+                startActivity(new Intent(Reminder.this, Profile.class ));
+                return true;
+            case R.id.action_salir:
+                Login.Logintrue.signOut();
+                startActivity(new Intent(Reminder.this, Login.class ));
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     public void returnn(View v){
         Intent returnn = new Intent(this, MainActivity.class);
         startActivity(returnn);

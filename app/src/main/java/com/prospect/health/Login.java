@@ -69,7 +69,7 @@ public class Login extends AppCompatActivity {
     }
     public static String id ="";
     private void loginUser(){
-        id= mAuth.getCurrentUser().getUid();
+
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -81,7 +81,13 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+        id= Logintrue.getCurrentUser().getUid();
         Log.d("hola id", id);
+    }
+
+    public void forgetPassword(View v) {
+        Intent term = new Intent(this, Reminder.class);
+        startActivity(term);
     }
 
     //Results Screen
