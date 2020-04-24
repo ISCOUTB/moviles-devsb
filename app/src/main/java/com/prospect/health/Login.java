@@ -27,14 +27,16 @@ import java.util.Map;
 
 public class Login extends AppCompatActivity {
 
-    private EditText mEdiTextUser;
+    private EditText mEditTextEmail;
     private EditText mEditTextPassword;
-    private Button mButtonRegister;
+    private Button mButtonLogin;
+
+    public static FirebaseAuth Logintrue;
 
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
     //Variables
-    private String name="";
+    private String email="";
     private String password="";
 
     @Override
@@ -43,22 +45,43 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        Logintrue = mAuth;
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mEdiTextUser = (EditText) findViewById(R.id.editEmail);
+        mEditTextEmail = (EditText) findViewById(R.id.editEmail);
         mEditTextPassword = (EditText) findViewById(R.id.editPass);
-        mButtonRegister = (Button) findViewById(R.id.buttonSingup);
+        mButtonLogin = (Button) findViewById(R.id.buttonSingup);
 
-        /*mButtonRegister.setOnClickListener(new View.OnClickListener(){
+        mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                name = mEdiTextUser.getText().toString();
-                password = mEditTextPassword.getText().toString();
-                //mDatabase.child("prueba2").setValue(name);
+            public void onClick(View v) {
+               // mProgress.message
+                email=mEditTextEmail.getText().toString();
+                password=mEditTextPassword.getText().toString();
+                if (!email.isEmpty()&&!password.isEmpty()){
+                    loginUser();
+                }else{
+                    Toast.makeText(Login.this, "Completa los campos", Toast.LENGTH_SHORT).show();
+                }
 
-                registerUser();
             }
-        });*/
+        });
+    }
+    public static String id ="";
+    private void loginUser(){
+        id= mAuth.getCurrentUser().getUid();
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    startActivity(new Intent(Login.this,MainActivity.class));
+                    Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Login.this, "No se pudo iniciar sesion", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        Log.d("hola id", id);
     }
 
     //Results Screen
@@ -67,41 +90,5 @@ public class Login extends AppCompatActivity {
         startActivity(Registro);
     }
 
-    /*private void registerUser(){
-        mAuth.createUserWithEmailAndPassword(name, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-
-                    Map<String, Object> map = new HashMap<>();
-                    map.put( "name", name);
-                    map.put( "password", password);
-
-                    String id= mAuth.getCurrentUser().getUid();
-                    mDatabase.child("Prueba2").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task2) {
-                            if(task2.isSuccessful()){
-                                startActivity(new Intent(Login.this, MainActivity.class ));
-                                Log.d("myTag", "Su registro ha sido exitoso");
-                                Toast.makeText( Login.this, "Su registro ha sido exitoso", Toast.LENGTH_SHORT).show();
-
-                                finish();
-                            }else{
-                                Log.d("myTag", "EL rgistro fallo");
-                                Toast.makeText( Login.this, "EL rgistro fallo", Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-                    });
-
-
-                }else{
-                    Toast.makeText( Login.this, "No se pudo registrar", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
-    }*/
 
 }

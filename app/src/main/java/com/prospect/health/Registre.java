@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,7 +90,7 @@ public class Registre extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Map<String, Object> map = new HashMap<>();
                     map.put( "name", name);
-                    map.put("name", correo);
+                    map.put("correo", correo);
                     map.put( "password", password);
                     //map.put( "surnames", surnames);
                     map.put( "weight", weight);
@@ -108,7 +109,7 @@ public class Registre extends AppCompatActivity {
                                 finish();
                             }else{
                                 Log.d("myTag", "EL rgistro fallo");
-                                Toast.makeText( Registre.this, "EL rgistro fallo", Toast.LENGTH_SHORT).show();
+                                Toast.makeText( Registre.this, "EL registro fallo", Toast.LENGTH_SHORT).show();
 
                             }
                         }
