@@ -36,6 +36,9 @@ public class Registre extends AppCompatActivity {
     private EditText mEdiTextPassword;
     private Button mButtonRegister;
 
+    public static boolean registrotrue=false;
+    public static String Idtrue="";
+
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
 
@@ -104,9 +107,10 @@ public class Registre extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task2) {
                             if(task2.isSuccessful()){
                                 startActivity(new Intent(Registre.this, MainActivity.class ));
+                                registrotrue=true;
+                                Idtrue= mAuth.getCurrentUser().getUid();
                                 Log.d("myTag", "Su registro ha sido exitoso");
                                 Toast.makeText( Registre.this, "Su registro ha sido exitoso", Toast.LENGTH_SHORT).show();
-
                                 finish();
                             }else{
                                 Log.d("myTag", "EL rgistro fallo");

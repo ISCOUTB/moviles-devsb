@@ -85,10 +85,10 @@ public class Login extends AppCompatActivity {
         Log.d("hola id", id);
     }
 
-    public void forgetPassword(View v) {
+   /* public void forgetPassword(View v) {
         Intent term = new Intent(this, Reminder.class);
         startActivity(term);
-    }
+    }*/
 
     //Results Screen
     public void Registro(View v) {

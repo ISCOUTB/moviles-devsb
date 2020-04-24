@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     public static String temperature="";
     public static String sugar="";
 
-    String id = Login.id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
         int mes = date.get(Calendar.MONTH);
         int dia = date.get(Calendar.DAY_OF_MONTH);
         String date1 = dia+"-"+(mes+1)+"-"+año;
+
+        String id;
+        if( Registre.registrotrue){
+            id= Registre.Idtrue;
+        }else{
+            id = Login.id;
+        }
 
         mEditTextRate = (EditText) findViewById(R.id.editRate);
         mEditTextPresure = (EditText) findViewById(R.id.editPressure);
