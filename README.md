@@ -13,3 +13,9 @@ de llevar al usuario a la pantalla de toma de datos para el registro de su cuent
 Luego del proceso de registro el usuario podrá visualizar la primera pantalla con dos botones y 5 campos diferentes. Oprimiendo en el primer botón "analyze" luego de llenar los 5 campos el usuario podrá ver un analizis (de muestra) posterior en el que se podra dar una breve indicacion de como se encuentra su salud. 
 Al oprimir el segundo botón "my medicine" el usuario puede decidir establecer una alarma para que en caso de olvidar el horario en el que necesita ingerir un medicamento, la aplicación le recuerde que debe ingerirlo. Se aclara que la pantalla en la qeu se establece la alarma es de muestra y no tiene sus respectivas funciones programadas.
 
+
+NUEVAS FUNCIONALIDADES:
+Guadando datos para analizar.
+menu funcionando.
+Login funcionando.
+
