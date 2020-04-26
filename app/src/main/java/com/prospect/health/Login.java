@@ -74,6 +74,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    id= mAuth.getCurrentUser().getUid();
+                    Log.d("hola id", id);
                     startActivity(new Intent(Login.this,MainActivity.class));
                     Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 }else{
@@ -81,14 +83,18 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-        id= Logintrue.getCurrentUser().getUid();
-        Log.d("hola id", id);
+        //id= mAuth.getCurrentUser().getUid();
+        //Log.d("hola id", id);
     }
 
-   /* public void forgetPassword(View v) {
-        Intent term = new Intent(this, Reminder.class);
+   public void forgetPassword(View v) {
+        Intent term = new Intent(this, RememberPassword.class);
         startActivity(term);
-    }*/
+    }
+
+   /*public void Google(){
+
+   }*/
 
     //Results Screen
     public void Registro(View v) {

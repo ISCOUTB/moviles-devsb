@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public static String temperature="";
     public static String sugar="";
 
+    public static String date1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
         int año = date.get(Calendar.YEAR);
         int mes = date.get(Calendar.MONTH);
         int dia = date.get(Calendar.DAY_OF_MONTH);
-        String date1 = dia+"-"+(mes+1)+"-"+año;
+        date1 = dia+"-"+(mes+1)+"-"+año;
+
+        Log.d("fecha", date1);
 
         String id;
         if( Registre.registrotrue){

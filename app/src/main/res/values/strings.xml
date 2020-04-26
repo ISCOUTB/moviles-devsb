@@ -46,4 +46,13 @@
     <string name="edit_perfil">Edit Profile</string>
     <string name="_01_01_1999">_01_01_1999</string>
     <string name="send">Send</string>
+    <string name="changed_to">Notificación cambiada a las %s</string>
+    <string name="time_selected_is">La hora seleccionada es:</string>
+    <string name="change_time">Cambia la hora</string>
+    <string name="select_time">Selecciona la hora</string>
+    <string name="new_notification">Nueva notificación</string>
+    <string name="your_email">Ingrese su Email</string>
+    <string name="Your_new_password">Ingrese su nueva contraseña</string>
+    <string name="repit_yourpassword">Ingrese nuevamente</string>
+    <string name="button_remember">Recuperar contraseña</string>
 </resources>
